@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles/main.css">
+
+  <title>Frontend Mentor | Todo app</title>
+
+</head>
+<body class="dark">
+  <header>
+    <section>
+      <h1>TODO</h1>
+
+      <span class="change-theme"></span>
+
+    </section>
+
+    <div class="createTodoContainer">
+      <span class="static-check-button"></span>
+      <input class="createTodo" type="text" placeholder="Create a new todo...">
+
+    </div>
+
+  </header>
+  <main >
+    <section id="mainContainer">
+      <div class="todo-container active">
+        <span class="check-button"><img src="./assets/icon-check.svg" alt="check icon"></span>
+        <h5 class="todo-text">1</h5>
+        <span class="remove-todo"></span>
+      </div>
+  
+      <div class="todo-container active">
+        <span class="check-button"><img src="./assets/icon-check.svg" alt="check icon"></span>
+        <h5 class="todo-text">2</h5>
+        <span class="remove-todo"></span>
+      </div>
+    </section>
+
+    <div class="infos">
+      <h4 class="allItens">2 items left</h4>
+
+      <div class="order-buttons">
+        <h4 class="order-all selected">All</h4>
+        <h4 class="order-active">Active</h4>
+        <h4 class="order-completed">Completed</h4>
+
+      </div>
+
+      <h4 class="clearCompleted">Clear Completed</h4>
+    </div>
+
+  </main>
+
+  <script src="./index.js"></script>
+</body>
+</html>
