@@ -1,0 +1,64 @@
+@media screen and (min-width: 600px) {
+  body {
+    min-height: 100vh;
+
+  }
+
+  body.dark header {
+    background-image: url('../assets/bg-desktop-dark.jpg');
+  
+  }
+  
+  body.light header {
+    background-image: url('../assets/bg-desktop-light.jpg');
+  
+  }
+
+  header section,
+  .createTodoContainer,
+  #mainContainer,
+  .infos {
+    max-width: 700px;
+
+  }
+
+  .todo-container {
+    padding: 20px 20px;
+
+  }
+
+  #mainContainer .todo-text {
+    font-size: 1.1rem;
+
+  }
+  
+  .todo-container .remove-todo {
+    opacity: 0%;
+
+    transition: 0.2s;
+
+  }
+
+  .todo-container:hover .remove-todo {
+    opacity: 100%;
+
+    cursor: pointer;
+    pointer-events: all;
+
+  }
+
+  .infos {
+    height: 55px;
+
+  }
+
+  .order-buttons {
+    width: 50%;
+
+    position: static;
+
+    padding: 15px 30px;
+
+  }
+
+}

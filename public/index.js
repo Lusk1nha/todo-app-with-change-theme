@@ -1,11 +1,19 @@
 const body = document.querySelector('body')
+const mainContainer = document.querySelector('#mainContainer')
+
 const btnTheme = document.querySelector('.change-theme')
 const allBtnCheck = document.querySelectorAll('.check-button')
 const allBtnRemove = document.querySelectorAll('.remove-todo')
 
-const allCompleted = []
-const allActive = []
+const ordersBtns = document.querySelectorAll('.order-btn')
 
+const Todos = {
+  All: [],
+  Completed: [],
+  Active: []
+}
+
+// ? This function changes the theme between Light or Dark.
 const changeTheme = async () => {
   if ( body.classList[0] == 'dark' ) {
     body.classList.remove('dark')
@@ -18,9 +26,8 @@ const changeTheme = async () => {
   }
 }
 
+// ? This creates the scope of the to-do with the user text.
 const createTodo = (text) => {
-  const mainContainer = document.querySelector('#mainContainer')
-
   const todoContainer = document.createElement('div')
   todoContainer.className = 'todo-container active'
 
@@ -48,47 +55,77 @@ const createTodo = (text) => {
 
 }
 
+// ? This update and Count how many Todo's is created.
+
 const countAllTodos = () => {
-  const allTodos = document.querySelectorAll('.todo-container')
+  const allActive = document.querySelectorAll('.todo-container.active')
   const allItensElement = document.querySelector('.allItens')
 
-  allItensElement.innerHTML = `${allTodos.length} items left`
+  allItensElement.innerHTML = `${allActive.length} items left`
 
 }
 
-const showAllCompleted = () => {
+// ? Remove all completed to-do.
+const removeAllCompleted = () => {
+  const allCompleted = document.querySelectorAll('.todo-container.completed')
+
+  for ( todo of allCompleted ) todo.remove()
+
+  return saveTodos()
+}
+
+
+// ? Saving all todo in Object "Todos" to be used then later.
+const saveTodos = () => {
   const completedTodos = document.querySelectorAll('.todo-container.completed')
-  console.log(completedTodos)
-
-}
-
-const showAllActive = () => {
   const activeTodos = document.querySelectorAll('.todo-container.active')
-  console.log(activeTodos)
+  const allTodos = document.querySelectorAll('.todo-container')
 
+  Todos.All = allTodos
+  Todos.Active = activeTodos
+  Todos.Completed = completedTodos
 }
 
+// ? Render a determined type of Todo as Active, Completed, and Both.
+const renderTodos = selectedTodos => {
+  const allTodos = document.querySelectorAll('.todo-container')
+
+  allTodos.forEach(todo => {
+    todo.hidden = true
+  });
+
+  selectedTodos.forEach(selectedTodo => {
+    selectedTodo.hidden = false
+  });
+}
+
+// ? Change the to-do to complete
 function completedChanger() {
   const todo = this.parentElement
   todo.classList.toggle('active')
   todo.classList.toggle('completed')
 
-  showAllCompleted()
-  showAllActive()
+  const actualOrderBtn = document.querySelector('.selected').innerHTML
+  
+  saveTodos()
+  countAllTodos()
+  renderTodos(Todos[actualOrderBtn])
 }
 
+// ? Remove a specific selected to-do
 function removeTodo() {
   const todoContainer = this.parentElement
   todoContainer.remove()
 
-  showAllCompleted()
-  showAllActive()
   return countAllTodos()
   
 }
 
+// ? This button calls the function that changes the theme.
 btnTheme.addEventListener('click', changeTheme)
 
+
+// ? If the user press enter on the keyboard, it is created a new To-do.
 body.addEventListener('keyup', (event) => {
   const createContainer = document.querySelector('.createTodoContainer')
   const inputValue = createContainer.childNodes[3]
@@ -97,17 +134,40 @@ body.addEventListener('keyup', (event) => {
   if ( event.key === 'Enter' && inputText.length >= 3 ) { 
     createTodo(inputText)
     inputValue.value = ''
+
+    const actualOrderBtn = document.querySelector('.selected').innerHTML
     
-    return countAllTodos()
+    saveTodos()
+    renderTodos(Todos[actualOrderBtn])
+    countAllTodos()
   }
 
 })
 
+countAllTodos()
+saveTodos()
 
+// ? Adding the event listeners in buttons Check and Remove
 allBtnCheck.forEach(button => {
   button.addEventListener('click', completedChanger)
 })
 
 allBtnRemove.forEach(button => {
   button.addEventListener('click', removeTodo)
+})
+
+const clearCompleteBtn = document.querySelector('.clearCompleted')
+clearCompleteBtn.addEventListener('click', removeAllCompleted)
+
+// ? If some order button is clicked, is rendered to-do type as completed, active, or all to-dos.
+ordersBtns.forEach(button => {
+
+  button.addEventListener('click', (e) => {
+    ordersBtns.forEach(button => { button.classList.remove('selected') })
+    button.classList.add('selected')
+
+    const buttonType = button.innerHTML
+
+    renderTodos(Todos[buttonType])
+  })
 })

@@ -6,6 +6,7 @@
 
   <link rel="icon" href="./assets/favicon-32x32.png">
   <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/responsive.css">
 
   <title>Frontend Mentor | Todo app</title>
 
@@ -28,26 +29,50 @@
   </header>
   <main >
     <section id="mainContainer">
-      <div class="todo-container active">
+      <div class="todo-container completed">
         <span class="check-button"><img src="./assets/icon-check.svg" alt="check icon"></span>
-        <h5 class="todo-text">1</h5>
+        <h5 class="todo-text">Complete online JavaScript course</h5>
         <span class="remove-todo"></span>
       </div>
   
       <div class="todo-container active">
         <span class="check-button"><img src="./assets/icon-check.svg" alt="check icon"></span>
-        <h5 class="todo-text">2</h5>
+        <h5 class="todo-text">Jog around the park 3x</h5>
+        <span class="remove-todo"></span>
+      </div>
+
+      <div class="todo-container active">
+        <span class="check-button"><img src="./assets/icon-check.svg" alt="check icon"></span>
+        <h5 class="todo-text">10 minutes meditation</h5>
+        <span class="remove-todo"></span>
+      </div>
+
+      <div class="todo-container active">
+        <span class="check-button"><img src="./assets/icon-check.svg" alt="check icon"></span>
+        <h5 class="todo-text">Read for 1 hour</h5>
+        <span class="remove-todo"></span>
+      </div>
+
+      <div class="todo-container active">
+        <span class="check-button"><img src="./assets/icon-check.svg" alt="check icon"></span>
+        <h5 class="todo-text">Pick up groceries</h5>
+        <span class="remove-todo"></span>
+      </div>
+      
+      <div class="todo-container active">
+        <span class="check-button"><img src="./assets/icon-check.svg" alt="check icon"></span>
+        <h5 class="todo-text">Complete Todo App on Frontend Mentor</h5>
         <span class="remove-todo"></span>
       </div>
     </section>
 
     <div class="infos">
-      <h4 class="allItens">2 items left</h4>
+      <h4 class="allItens">*</h4>
 
       <div class="order-buttons">
-        <h4 class="order-all selected">All</h4>
-        <h4 class="order-active">Active</h4>
-        <h4 class="order-completed">Completed</h4>
+        <h4 class="order-btn all selected">All</h4>
+        <h4 class="order-btn active">Active</h4>
+        <h4 class="order-btn completed">Completed</h4>
 
       </div>
 
