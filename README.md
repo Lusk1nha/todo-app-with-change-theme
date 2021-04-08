@@ -1,12 +1,24 @@
-# todo-app-with-change-theme
+## todo-app-with-change-theme
 
-A Todo-App that can change to a light or dark theme.
+* This Todo-App can:
+>
 
-This is a challenge of [FrontEnd Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW/hub/todo-app-SZHy8rqeq).
+* Creates to-dos and removes to-dos.
+>
 
-## Result
+* Change between a light or dark theme.
+>
 
-> ### See the result live [here](https://todo-app-with-change-theme-lusk1nha.vercel.app/)
+* Show just the to-do activate, or completed's, or both. 
+>
+
+* Clear all completed to-dos.
+
+> This is a challenge of [FrontEnd Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW/hub/todo-app-SZHy8rqeq).
+
+### Result
+
+> #### See the result live [here](https://todo-app-with-change-theme-lusk1nha.vercel.app/)
 
 
 > ###### Desktop Version - Dark Theme

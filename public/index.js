@@ -131,7 +131,7 @@ body.addEventListener('keyup', (event) => {
   const inputValue = createContainer.childNodes[3]
   const inputText = inputValue.value
   
-  if ( event.key === 'Enter' && inputText.length >= 3 ) { 
+  if ( event.key === 'Enter' && inputText.trim().length >= 1 ) { 
     createTodo(inputText)
     inputValue.value = ''
 

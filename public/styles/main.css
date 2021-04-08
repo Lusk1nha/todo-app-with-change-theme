@@ -27,6 +27,11 @@
   padding: 0;
 
   font-family: 'Josefin Sans', sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  letter-spacing: .03em;
 
 }
 
@@ -37,7 +42,7 @@
 
 body {
   min-width: 300px;
-  min-height: 75vh;
+  min-height: 80vh;
 
   display: flex;
   flex-direction: column;
@@ -137,6 +142,8 @@ header section span {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 
 }
 
@@ -277,6 +284,8 @@ body.light .todo-container {
 
   margin-right: 20px;
 
+  transition: border 0.2s;
+
 }
 
 .check-button:hover {
@@ -325,7 +334,7 @@ body.light .static-check-button {
   align-items: center;
   justify-content: flex-start;
 
-  font-size: 3vmin;
+  font-size: 3.3vmin;
   font-weight: 400;
   letter-spacing: 0.02rem;
   
@@ -401,6 +410,13 @@ body.light .infos {
   font-size: 0.9rem;
   font-weight: 400;
 
+  transition: color 0.3s;
+
+}
+
+.infos .clearCompleted {
+  cursor: pointer;
+
 }
 
 body.dark .infos .allItens,
@@ -460,6 +476,8 @@ body.light .order-buttons {
   margin: 0px 10px;
 
   cursor: pointer;
+
+  transition: color 0.3s;
 
 }
 
